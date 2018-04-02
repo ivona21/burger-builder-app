@@ -1,6 +1,7 @@
 import React, { PureComponent } from "react";
 import Aux from "../../hoc/Auxiliary";
 import Burger from "../../components/Burger/Burger";
+import BulidControls from "../../components/Burger/BuildControls/BuildControls";
 
 class BurgerBuilder extends PureComponent {
     state = {
@@ -15,7 +16,7 @@ class BurgerBuilder extends PureComponent {
         return (
             <Aux>
                 <Burger ingredients={this.state.ingredients}/>
-                <div>Build Controls</div>
+                <BulidControls />
             </Aux>
         );
     }
