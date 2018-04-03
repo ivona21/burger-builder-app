@@ -3,9 +3,7 @@ import styles from "./Burger.css";
 import BurgerIngredient from "./BurgerIngredient/BurgerIngredient";
 
 const burger = (props) => {  
-    let message = null;    
-   
-    const transformedIngredients = Object.keys(props.ingredients).map(
+    let transformedIngredients = Object.keys(props.ingredients).map(
         (ingredientName) => {
             return [...Array(props.ingredients[ingredientName])].map(
                 (_, i) => {
@@ -20,15 +18,14 @@ const burger = (props) => {
     });
 
     if (transformedIngredients.length == 0){
-        message = <p>Please add some ingredients!</p>
+        transformedIngredients = <p>Please add some ingredients!</p>
     }
     console.log(transformedIngredients);
     return (
         <div className={styles.Burger}>
             <BurgerIngredient type="bread-top" />
             {transformedIngredients}
-            <BurgerIngredient type="bread-bottom" />
-            {message}
+            <BurgerIngredient type="bread-bottom" />          
         </div>
     );
 }
