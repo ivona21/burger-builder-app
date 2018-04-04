@@ -75,7 +75,15 @@ class BurgerBuilder extends PureComponent {
     }
 
     purchaseHandler = () => {
-        this.setState({purchaseMode: true});
+        this.setState({ purchaseMode: true });
+    }
+
+    purchaseCancelHandler = () => {
+        this.setState({ purchaseMode: false });
+    }
+
+    purchaseContinueHandler = () => {
+        alert('You continue!');
     }
 
     render() {
@@ -87,8 +95,12 @@ class BurgerBuilder extends PureComponent {
         }
         return (
             <Aux>
-                <Modal show={this.state.purchaseMode}>
-                    <OrderSummary ingredients={this.state.ingredients} />
+                <Modal show={this.state.purchaseMode}
+                    modalClosed={this.purchaseCancelHandler}>
+                    <OrderSummary 
+                        ingredients={this.state.ingredients}
+                        purchaseCanceled={this.purchaseCancelHandler}
+                        purchaseContinued={this.purchaseContinueHandler} />
                 </Modal>
                 <Burger ingredients={this.state.ingredients} />
                 <BulidControls
