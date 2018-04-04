@@ -98,6 +98,7 @@ class BurgerBuilder extends PureComponent {
                 <Modal show={this.state.purchaseMode}
                     modalClosed={this.purchaseCancelHandler}>
                     <OrderSummary 
+                        price={this.state.totalPrice}
                         ingredients={this.state.ingredients}
                         purchaseCanceled={this.purchaseCancelHandler}
                         purchaseContinued={this.purchaseContinueHandler} />
